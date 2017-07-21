@@ -32,6 +32,7 @@
     <!-- Add your actions here -->
     <action id="guahao.hancw" class="com.guahao.hancw.GuaHaoAction" text="GuaHao" description="begin translate formate">
       <add-to-group group-id="EditMenu" anchor="first"/>
+      <keyboard-shortcut first-keystroke="ctrl alt H" keymap="$default"/>
     </action>
   </actions>
 
