@@ -167,15 +167,15 @@ public abstract class Processor {
     private String getTypeLine(FieldEntity fieldEntity) {
         String typeLine = "obj.optString(\"" + fieldEntity.getGenerateFieldName() + "\")";
         if (fieldEntity.getFullNameType().equals("long")||fieldEntity.getFullNameType().equals("Long")){
-            typeLine = "obj.optLong(\"" + fieldEntity.getFieldName() + "\")";
+            typeLine = "obj.optLong(\"" + fieldEntity.getFieldName() + "\")"+";";
         } else if (fieldEntity.getFullNameType().equals("int")||fieldEntity.getFullNameType().equals("Integer")) {
-            typeLine = "obj.optInt(\"" + fieldEntity.getFieldName() + "\")";
+            typeLine = "obj.optInt(\"" + fieldEntity.getFieldName() + "\")"+";";
         } else if (fieldEntity.getFullNameType().equals("boolean") || fieldEntity.getFullNameType().equals("Boolean")) {
-            typeLine = "obj.optBoolean(\"" + fieldEntity.getFieldName() + "\")";
+            typeLine = "obj.optBoolean(\"" + fieldEntity.getFieldName() + "\")"+";";
         } else if (fieldEntity.getFullNameType().equals("double") || fieldEntity.getFullNameType().equals("Double")) {
-            typeLine = "obj.optDouble(\"" + fieldEntity.getFieldName() + "\")";
+            typeLine = "obj.optDouble(\"" + fieldEntity.getFieldName() + "\")"+";";
         } else if (fieldEntity.getFullNameType().equals("String")) {
-            typeLine = "obj.optString(\"" + fieldEntity.getFieldName() + "\")";
+            typeLine = "obj.optString(\"" + fieldEntity.getFieldName() + "\")"+";";
         } else {
             //如果是对象JSONObject,生成 classFieldName =
             // new InnerClassName("obj.optJSONObject(\"" + fieldEntity.getFieldName() + "\")")
@@ -214,11 +214,11 @@ public abstract class Processor {
             } else {
                 //对象处理
                 typeLine = "new " + fieldEntity.getTargetClass().getClassName() +
-                        "(" + "obj.optJSONObject(\"" + fieldEntity.getFieldName() + "\")" + ")";
+                        "(" + "obj.optJSONObject(\"" + fieldEntity.getFieldName() + "\")" + ")"+";";
             }
 
         }
-        return typeLine+";";
+        return typeLine;
     }
 
     private boolean isBaseType(IterableFieldEntity fieldEntity) {
